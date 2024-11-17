@@ -23,7 +23,7 @@ contents = CSV.open(
 
 contents.each do |row|
   name = row[:first_name]
-  zipcode = row[:zipcode]
+  zipcode = clean_zipcode(row[:zipcode])
 
   puts "#{name} #{zipcode}"
 end
