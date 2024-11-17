@@ -31,9 +31,10 @@ contents.each do |row|
     )
     legislators = legislators.officials
     legislator_names = legislators.map(&:name)
+    legislator_string = legislator_names.join(', ')
   rescue StandardError
     'You can find your representatives by visiting www.commoncause.org/take-action/find-elected-officials'
   end
 
-  puts "#{name} #{zipcode} #{legislator_names}"
+  puts "#{name} #{zipcode} #{legislator_string}"
 end
