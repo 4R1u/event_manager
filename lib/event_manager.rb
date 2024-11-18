@@ -33,6 +33,8 @@ contents = CSV.open(
   header_converters: :symbol
 )
 
+template_letter = File.read('form_letter.html')
+
 contents.each do |row|
   name = row[:first_name]
 
