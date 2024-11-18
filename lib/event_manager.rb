@@ -42,5 +42,7 @@ contents.each do |row|
 
   legislator_string = legislators_by_zipcode(zipcode)
 
-  puts "#{name} #{zipcode} #{legislator_string}"
+  personal_letter = template_letter.gsub('FIRST_NAME', name)
+  personal_letter.gsub!('LEGISLATORS', legislator_string)
+  puts personal_letter
 end
