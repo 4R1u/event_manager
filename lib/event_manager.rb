@@ -6,7 +6,7 @@ def clean_zipcode(zipcode)
   zipcode.to_s.rjust(5, '0')[0..4]
 end
 
-def clean_phone_number(number)
+def validate_phone_number(number)
   phone_number = number.chars.select((0..9))
   return 'Invalid number' if (10..11).include?(phone_number.size) ||
                              !phone_number.all?('0'..'9') ||
