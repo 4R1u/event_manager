@@ -7,7 +7,7 @@ def clean_zipcode(zipcode)
 end
 
 def validate_phone_number(number)
-  phone_number = number.chars.select((0..9))
+  phone_number = number.chars.select { |char| ('0'..'9').include?(char) }
   return 'Invalid number' if !(10..11).include?(phone_number.size) ||
                              !phone_number.all?('0'..'9') ||
                              (phone_number.size == 11 && phone_number[0] != '1')
