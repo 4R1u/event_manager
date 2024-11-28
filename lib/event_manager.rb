@@ -57,6 +57,8 @@ contents = CSV.open(
   header_converters: :symbol
 )
 
+registration_hours = Hash.new(0)
+
 template_letter = File.read('form_letter.erb')
 erb_template = ERB.new template_letter
 
@@ -65,8 +67,11 @@ contents.each do |row|
   name = row[:first_name]
   zipcode = clean_zipcode(row[:zipcode])
   legislators = legislators_by_zipcode(zipcode)
+  registration_hours[parse_hour(row[:regdate])] += 1
 
   form_letter = erb_template.result(binding)
 
   save_thank_you_letter(id, form_letter)
 end
+
+p registration_hours
