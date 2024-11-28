@@ -1,6 +1,7 @@
 require 'csv'
 require 'google/apis/civicinfo_v2'
 require 'erb'
+require 'time'
 
 def clean_zipcode(zipcode)
   zipcode.to_s.rjust(5, '0')[0..4]
@@ -13,6 +14,11 @@ def validate_phone_number(number)
                              (phone_number.size == 11 && phone_number[0] != '1')
 
   phone_number.join
+end
+
+def parse_hour(time_string)
+  Time.strptime(time_string, '%e/%d/%g %H:%M')
+      .hour
 end
 
 def legislators_by_zipcode(zip)
