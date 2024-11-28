@@ -17,7 +17,7 @@ def validate_phone_number(number)
 end
 
 def parse_time(time_string)
-  Time.strptime(time_string, '%e/%d/%g %H:%M')
+  Time.strptime(time_string, '%m/%d/%y %H:%M')
 end
 
 def parse_hour(time_string)
