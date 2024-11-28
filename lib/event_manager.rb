@@ -16,9 +16,12 @@ def validate_phone_number(number)
   phone_number.join
 end
 
-def parse_hour(time_string)
+def parse_time(time_string)
   Time.strptime(time_string, '%e/%d/%g %H:%M')
-      .hour
+end
+
+def parse_hour(time_string)
+  parse_time(time_string).hour
 end
 
 def legislators_by_zipcode(zip)
